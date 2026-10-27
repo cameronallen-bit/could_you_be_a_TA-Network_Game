@@ -46,7 +46,7 @@
         "$v": {
           "$id": {
             ".write": "!data.exists() || (auth != null && root.child('advisorQuiz/admins/' + auth.uid).exists() && !newData.exists())",
-            ".validate": "newData.hasChildren(['t', 'total', 'type']) && newData.child('t').val() === now && newData.child('total').val() >= 0 && newData.child('total').val() <= 10000"
+            ".validate": "newData.hasChildren(['t', 'type', 'spec']) && newData.child('t').val() === now && newData.child('type').isString() && newData.child('type').val().length <= 20 && newData.child('spec').isString() && newData.child('spec').val().length <= 20"
           }
         }
       },
